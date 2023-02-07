@@ -1,0 +1,445 @@
+HTML
+
+<html>
+    <head>
+        <title>TodoListProject</title>
+        <link rel="stylesheet" href="todoOne.css">
+        <link rel="stylesheet" href="https://kit.fontawesome.com/b3be1d72a6.css" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/b3be1d72a6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="bg-container">
+        <div class="top-heading">
+            <h1 class="main-heading">Todos</h1>
+            <i class="fas fa-bars menubar" id="para" onclick="colorChange(this)"></i>
+        </div>
+        <div class="main-data" id="main-container">
+            <div class="color-card hidden" id="color-card">
+                <div class="first-color" onclick="firstColor()"></div>
+                <div class="second-color" onclick="secondColor()"></div>
+                <div class="third-color" onclick="thirdColor()"></div>
+                <div class="default-color" onclick="defaultColor()"></div>
+            </div>
+            <div class="data-container">
+                <input type="text" class="input-space" id="input" placeholder="Tell me Your Tasks">
+                <button class="btn btn-primary addBtn" id="inputvalue" onclick="inputValues()">Add New Task</button>
+            </div>
+            <div class="my-tasks">
+                <h1><span class="my-tasks-span">My</span> Tasks</h1>
+                <i class="fa-solid fa-list-check menubar"></i>
+            </div>
+            <div class="todo-list-container">
+                <ul class="todo-individual-cont" id="todoindividualcont">
+                    
+                </ul>
+            </div>
+            <div>
+                <button class="btn btn-primary addBtn saveBtn" id="saveBtn">Save</button>
+                <button class="btn btn-danger addBtn saveBtn" id="resetBtn">Reset</button>
+            </div>
+            
+        </div>
+    </div>  
+    
+        <script src="todoOne.js"></script>
+    </body>
+</html>
+
+##################################################################################################
+CSS
+
+body{
+    margin: 0px;
+}
+.bg-container{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.top-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 15vh;
+}
+.main-heading{
+    align-self: center;
+}
+.menubar{
+    align-self: center;
+    font-size: 30px;
+}
+.menubar:hover{
+    color: white;
+}
+.main-data{
+    background-color: rgb(220, 180, 131);
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+.fas{
+    color: blue;
+}
+.color-card{
+    background-color: rgb(27, 165, 165);
+    height: 75px;
+    width: 20vw;
+    border-radius: 30px;
+    margin: 15%;
+    margin-top: 10px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-self: flex-end;
+}
+.hidden{
+    display: none;
+}
+.main-data{
+    text-align: center;
+
+}
+.first-color{
+    background-color: aquamarine;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+.second-color{
+    background-color: lightyellow;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+.default-color{
+    background-color: rgb(220, 180, 131);
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+.third-color{
+    background-color: lightgreen;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+.changeOne{
+    background-color: aquamarine ;
+}
+.changeSec{
+    background-color: lightyellow;
+}
+.changeThird{
+    background-color: lightgreen ;
+}
+.defaultColor{
+    background-color: rgb(220, 180, 131) ;
+}
+.data-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.input-space{
+    height: 7vh;
+    width: 50vw;
+    min-width: 50vw;
+    align-self: flex-start;
+    margin-top: 2vh;
+    border-radius: 30px;
+    border-color: #e4e7eb;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    padding: 10px;
+    font-size: 20px;
+    flex-shrink: 1;
+    
+}
+.addBtn{
+    height: 7vh;
+    margin-top: 2vh;
+    flex-shrink: 1;
+    margin-left: 10px;
+}
+.my-tasks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 2vh;
+}
+.my-tasks-span{
+    font-weight: bold;
+}
+.todo-list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    height: 60vh;
+}
+.todo-list-container::-webkit-scrollbar{
+    display: none;
+}
+li{
+    list-style-type: none;
+}
+.todo-individual-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+.todo-individial{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.label-text{
+    font-family: roboto;
+    margin-top: 10px;
+    margin-left: 15px;
+    
+}
+.todoTextContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    height: 50px;
+    width: 50vw;
+    border-radius: 15px;
+    margin: 10px;
+    overflow-x:hidden;
+}
+.todoTextContainer::-webkit-scrollbar{
+    display: none;
+}
+.deleteIcon{
+    font-size: 20px;
+    color: black;
+    
+    margin: 10px;
+}
+.deleteIcon:hover{
+    color: lightgray;
+    font-size: 30px;
+}
+.checked{
+    text-decoration: line-through;
+}
+.navbarCss{
+    background-color: transparent;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.saveBtn{
+    align-self: center;
+    justify-content: flex-end;
+}
+
+###################################################################################################
+JS
+
+let a= document.getElementById('hello')
+let icons=document.getElementById('one')
+let addBtn=document.getElementById('inputvalue')
+let inputContainer=document.getElementById('todoindividualcont')
+let saveBtn=document.getElementById('saveBtn')
+let resetBtn= document.getElementById('resetBtn')
+resetBtn.onclick =function(){
+    localStorage.removeItem("todoList");
+}
+saveBtn.onclick = function(){
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+}
+function gettodoListFromLocal() {
+    let stringTodo= localStorage.getItem('todoList')
+    let parsedTodo= JSON.parse(stringTodo)
+    if (parsedTodo ===null){
+        return []
+    }else{
+        return parsedTodo
+    }
+   
+}
+gettodoListFromLocal()
+let todoList = gettodoListFromLocal()
+let todoCount=todoList.length;
+function myFunction(x) {
+    x.classList.toggle("fa-check");
+    x.classList.toggle("fa-minus");
+}
+function colorChange(x){
+    let s=document.getElementById('color-card')
+    x.classList.toggle('fa-bars')
+    s.classList.toggle('hidden')
+    x.classList.toggle('fa-home')
+
+    //s.classList.toggle('trialSecons')
+}
+function one(){
+    let bg=document.getElementById('main')
+    bg.classList.toggle('whole-back')
+}
+function firstColor(){
+    let back=document.getElementById('main-container')
+    back.classList.add('changeOne')
+    back.classList.remove('changeSec', 'changeThird', 'defaultColor')
+    
+}
+function secondColor(){
+    let back=document.getElementById('main-container')
+    back.classList.add('changeSec')
+    back.classList.remove('changeOne', 'changeThird', 'defaultColor')
+}
+function thirdColor(){
+    let back=document.getElementById('main-container');
+    back.classList.add('changeThird')
+    back.classList.remove('changeOne', 'changeSec', 'defaultColor')
+}
+function defaultColor(){
+    let back=document.getElementById('main-container');
+    back.classList.add('defaultColor')
+    back.classList.remove('changeOne', 'changeSec', 'changeThird')
+
+}
+
+function statusOfTodo(checkboxId, labelId, todoMainId){
+    let checkboxElement= document.getElementById(checkboxId);
+    let labelElement= document.getElementById(labelId)
+    labelElement.classList.toggle('checked')
+
+    let todoIndex= todoList.findIndex(function(eachTodo){
+        let eachTodoId= 'todo'+ eachTodo.uniqueNo;
+        //console.log(eachTodoId)
+        if (eachTodoId== todoMainId){
+            
+            return true
+            
+        }
+        else{
+           
+            return false
+        }
+    })
+    let todoObject= todoList[todoIndex]
+    if (todoObject.ischecked===true){
+        todoObject.ischecked= false;
+    }else{
+        todoObject.ischecked=true
+    }
+    //console.log(todoObject)
+}
+
+function deleteTask(todoMainId){
+    let todoElement= document.getElementById(todoMainId)
+    inputContainer.removeChild(todoElement)
+
+    let findingIndexToDelete= todoList.findIndex(function(eachTodo){
+        let eachTodoId= "todo"+ eachTodo.uniqueNo;
+        if (eachTodoId== todoMainId){
+            console.log(todoList.todoMainId)
+            return true
+
+        }else{
+            return false
+        }
+    });
+    todoList.splice(findingIndexToDelete, 1)
+}
+
+function createAndAppendTodo(i){
+    //All Ids
+    let todoMainId="todo"+  i.uniqueNo
+    let checkboxId= 'checkbox' + i.uniqueNo;
+    let labelId= 'label' + i.uniqueNo;
+    //List Element
+    let todoElement=document.createElement('li')
+    todoElement.classList.add('todo-individial')
+    todoElement.id=todoMainId
+    inputContainer.appendChild(todoElement)
+    // CheckBox
+    let inputcheckbox= document.createElement('input')
+    inputcheckbox.type='checkbox'
+    inputcheckbox.id=checkboxId
+    inputcheckbox.checked=i.ischecked;
+    inputcheckbox.classList.add('checkbox')
+    todoElement.appendChild(inputcheckbox)
+    // Div Container
+    let divContainer= document.createElement('div')
+    divContainer.classList.add('todoTextContainer')
+    todoElement.appendChild(divContainer)
+    //Label Element
+    let labelElement= document.createElement('label')
+    labelElement.setAttribute('for', checkboxId)
+    labelElement.id=labelId
+    labelElement.textContent=i.text
+    labelElement.classList.add('label-text')
+    if (i.ischecked===true){
+        labelElement.classList.add('checked')
+    }
+    
+    divContainer.appendChild(labelElement)
+    
+    //Checkbox Function
+    inputcheckbox.onclick=function(){
+        statusOfTodo(checkboxId, labelId, todoMainId)
+    }
+    
+    // Delete Icon
+    let deleteIcon=document.createElement('i')
+    deleteIcon.classList.add('fas', 'fa-trash-alt', 'deleteIcon')
+    divContainer.appendChild(deleteIcon)
+    // Onclick Delete Icon
+    deleteIcon.onclick=function(){
+        deleteTask(todoMainId)
+    }
+
+}
+
+for (let i of todoList){
+    createAndAppendTodo(i)
+}
+function onTodo(){
+    let inputElement= document.getElementById('input')
+    let inputValue= inputElement.value
+
+    if (inputValue ===''){
+        alert ('Please enter Task')
+        return
+    }
+    
+    todoCount= todoCount +1
+    let newTodo = {
+        text: inputValue,
+        uniqueNo: todoCount,
+        ischecked: false
+    }
+    todoList.push(newTodo)
+    createAndAppendTodo(newTodo);
+    inputElement.value=''
+}
+addBtn.onclick=function(){
+    onTodo()
+}
